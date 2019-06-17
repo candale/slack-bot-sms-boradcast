@@ -14,7 +14,7 @@ def send():
     response_url = request.form['response_url']
 
     people = load_list_of_people(os.environ['CONTACTS'])
-    success, error = send_sms_to_list(people, 'lol')
+    success, error = send_sms_to_list(people, text)
 
     return 'Sent: {}. Error: {}'.format(success, error)
 
