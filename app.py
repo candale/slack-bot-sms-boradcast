@@ -9,6 +9,7 @@ app = Flask('staroste')
 
 @app.route('/send/', methods=['POST'])
 def send():
+    print(request.form)
     text = request.form['text']
     response_url = request.form['response_url']
 

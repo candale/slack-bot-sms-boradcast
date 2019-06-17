@@ -50,7 +50,7 @@ def send_sms_to_list(people, message):
         )
 
         data = response.json()
-        if data['message'] == 'Send':
+        if data['message'] == 'Sent':
             success += 1
         else:
             error += 1
