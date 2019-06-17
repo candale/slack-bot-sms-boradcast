@@ -9,9 +9,8 @@ app = Flask('staroste')
 
 @app.route('/send/', methods=['POST'])
 def send():
-    print(request.json)
-    text = request.json['text']
-    response_url = request.json['response_url']
+    text = request.form['text']
+    response_url = request.form['response_url']
 
     people = load_list_of_people(os.environ['CONTACTS'])
     send_sms_to_list(people, text)
