@@ -33,6 +33,8 @@ def send_sms_to_list(people, message):
         'from=andrei'
     )
 
+    success = 0
+    error = 0
     for name, phone_number in people:
         text_to_send = (
             'Andrei si Oana | Salut {name}! ' + message
@@ -46,3 +48,11 @@ def send_sms_to_list(people, message):
                 message=quote(text_to_send)
             )
         )
+
+        data = response.json()
+        if data['message'] == 'Send':
+            success += 1
+        else:
+            error += 1
+
+    return success, error

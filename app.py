@@ -13,9 +13,9 @@ def send():
     response_url = request.form['response_url']
 
     people = load_list_of_people(os.environ['CONTACTS'])
-    send_sms_to_list(people, text)
+    success, error = send_sms_to_list(people, 'lol')
 
-    return 'ok'
+    return 'Sent: {}. Error: {}'.format(success, error)
 
 
 if __name__ == '__main__':
